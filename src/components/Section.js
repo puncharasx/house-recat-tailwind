@@ -25,7 +25,7 @@ const Section = ({title, description, backgroundImage, leftBtnText, rightBtnText
                 
             </ButtonGroup>
             </Fade>
-            <DownArrow src="images/down-arrow.svg"/>
+            <DownArrow>V</DownArrow>
             </Button>
         </Warp>
     )
@@ -44,7 +44,7 @@ const Warp = styled.div`
     flex-direction: column;
     justify-content: space-between; //vertial
     align-items: center; // horizontal
-    background-image: ${props => `url("/images/${props.bgImage}")`}
+    background-image: ${props => `url("${props.bgImage}")`}
 
 `
 const ItemText = styled.div`
@@ -93,8 +93,8 @@ const RightButton = styled(LeftButton)`
 
 `
 
-const DownArrow = styled.img`
-    height:40px;
+const DownArrow = styled.div`
+    color:wihte;
     animation: animateDown infinite 1.5s;
 
 

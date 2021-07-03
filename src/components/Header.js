@@ -2,27 +2,23 @@ import React,{ useState } from 'react'
 import styled from 'styled-components'
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
-import { selectCars } from '../features/car/carSlice'
-import { useSelector } from 'react-redux'
+import data from '../data';
 
 const Header = () => {
     const [burgerStatus, setBurgerStatus] = useState(false)
-    const cars = useSelector(selectCars)
     return (
         <Container>
-            <a>
-                <img src="images/logo.svg" alt="" />
-            </a>
+
 
             <Menu>
-                {cars && cars.map((car, index) => (
-                    <a key={index} href="#">{car}</a>
+                {data && data.map((d, index) => (
+                    <a key={index} href="#">{d.name}</a>
                 
                 ))}
             </Menu>
             <RightMenu>
-                <a href="#">Shop</a>
-                <a href="#">Tesla Account</a>
+                <a href="#">More</a>
+
                 <CustomMenu onClick={() => setBurgerStatus(true)} />
             </RightMenu>
             <BurgerNav show={burgerStatus}>
@@ -30,16 +26,9 @@ const Header = () => {
                     <CustomClose onClick={() => setBurgerStatus(false)}/>   
                 </CloseWrapper>
                 
-                {cars && cars.map((car, index) => (
-                    <li key={index}><a href="#">{car}</a></li>
+                {data && data.map((d, index) => (
+                    <li key={index}><a href="#">{d.name}</a></li>
                 ))}
-                <li><a href="#">Existion Inventory</a></li>
-                <li><a href="#">Used Inventory</a></li>
-                <li><a href="#">Trade-in</a></li>
-                <li><a href="#">Cebertruck</a></li>
-                <li><a href="#">Roadaster</a></li>
-                <li><a href="#">Semi</a></li>
-                <li><a href="#">Chargeing</a></li>
             </BurgerNav>
         </Container>
     )
